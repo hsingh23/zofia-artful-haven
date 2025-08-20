@@ -13,7 +13,7 @@ const BlogEdit = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { toast } = useToast();
 
-  // Mock blog posts for editing
+  // Blog posts for editing
   const [posts, setPosts] = useState([
     {
       id: 1,
@@ -27,6 +27,13 @@ const BlogEdit = () => {
       title: "Behind the Scenes: Novus Album Creation", 
       slug: "novus-album-creation",
       category: "Music",
+      status: "published"
+    },
+    {
+      id: 3,
+      title: "Art Nouveau Influence in Modern Digital Art",
+      slug: "art-nouveau-influence", 
+      category: "Art",
       status: "published"
     }
   ]);
@@ -56,7 +63,16 @@ const BlogEdit = () => {
 
   const handleSavePost = () => {
     if (newPost.title && newPost.content) {
-      // In a real implementation, this would push to GitHub
+      // Add to posts list
+      const newId = Math.max(...posts.map(p => p.id)) + 1;
+      setPosts([...posts, {
+        id: newId,
+        title: newPost.title,
+        slug: newPost.slug,
+        category: newPost.category,
+        status: "published"
+      }]);
+      
       toast({
         title: "Post saved! ✨",
         description: "Blog post has been saved to the repository.",

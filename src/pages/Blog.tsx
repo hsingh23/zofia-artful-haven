@@ -9,13 +9,29 @@ const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // Mock blog posts - in a real app, these would come from your MDX files
+  // Blog posts with actual content
   const blogPosts = [
     {
       id: 1,
       title: "The Art of Sound Design: Creating Organic Textures",
-      excerpt: "Exploring how natural sounds and digital manipulation create unique sonic landscapes in modern music production...",
-      content: "Full MDX content would go here",
+      excerpt: "Exploring how natural sounds and digital manipulation create unique sonic landscapes in modern music production. From field recordings to digital processing, discover the creative process behind organic sound design.",
+      content: `# The Art of Sound Design: Creating Organic Textures
+
+Sound design is more than just technical manipulation—it's about breathing life into digital spaces through organic textures that feel alive and breathing.
+
+## Finding Inspiration in Nature
+
+The foundation of organic sound design begins with nature itself. I spend countless hours capturing field recordings: rustling leaves, flowing water, distant thunder. These recordings become the building blocks for something entirely new.
+
+## Digital Alchemy
+
+Using tools like Ableton Live and various plugins, I transform these natural sounds through granular synthesis, spectral processing, and layered modulation. The goal isn't to recreate nature, but to capture its essence and reimagine it in digital form.
+
+## The Creative Process
+
+Each texture tells a story. A simple recording of wind through trees might become the foundation for an entire atmospheric piece, processed and layered until it evolves into something completely unexpected yet familiar.
+
+The magic happens in the space between the organic and the digital—where technology serves creativity rather than constraining it.`,
       author: "zoofia",
       date: "2024-01-15",
       readTime: "8 min read",
@@ -26,8 +42,33 @@ const Blog = () => {
     {
       id: 2,
       title: "Behind the Scenes: Novus Album Creation",
-      excerpt: "A deep dive into the creative process behind the latest album, from initial concepts to final mastering...",
-      content: "Full MDX content would go here",
+      excerpt: "A deep dive into the creative process behind the Novus album, from initial concepts to final mastering. Discover the techniques, inspirations, and challenges that shaped this artistic journey.",
+      content: `# Behind the Scenes: Novus Album Creation
+
+Creating Novus was a journey through uncharted sonic territories, blending experimental techniques with deeply personal artistic expression.
+
+## Conceptual Foundation
+
+The album began with a simple question: How can digital tools capture the organic complexity of human emotion? This led to months of experimentation with field recordings, synthesized textures, and found sounds.
+
+## Production Techniques
+
+### Layered Textures
+Each track builds upon carefully crafted layers of:
+- Field recordings from urban and natural environments
+- Analog synthesizer patches processed through digital effects
+- Granular synthesis techniques for texture evolution
+- Careful use of space and silence as compositional elements
+
+### The Recording Process
+
+Most sessions happened between midnight and 4 AM, when the world is quietest and creativity flows most freely. I recorded everything from subway ambience to morning bird songs, weaving them into the digital tapestry.
+
+## Challenges and Breakthroughs
+
+The biggest challenge was maintaining emotional authenticity while pushing technical boundaries. The breakthrough came when I stopped trying to make "perfect" sounds and embraced the beautiful imperfections that make music human.
+
+Listen to the full album on [Bandcamp](https://zofiaa.bandcamp.com/album/novus).`,
       author: "zoofia",
       date: "2024-01-10",
       readTime: "12 min read",
@@ -38,8 +79,39 @@ const Blog = () => {
     {
       id: 3,
       title: "Art Nouveau Influence in Modern Digital Art",
-      excerpt: "How the flowing, organic forms of Art Nouveau continue to inspire contemporary digital artists and musicians...",
-      content: "Full MDX content would go here",
+      excerpt: "How the flowing, organic forms of Art Nouveau continue to inspire contemporary digital artists and musicians. Exploring the intersection of historical artistic movements and modern creative technology.",
+      content: `# Art Nouveau Influence in Modern Digital Art
+
+The flowing, organic lines of Art Nouveau from the late 19th century continue to influence how we approach digital creativity today. There's something timeless about these natural forms that transcends medium and era.
+
+## Historical Context
+
+Art Nouveau emerged as a reaction against industrialization, embracing natural forms, flowing lines, and organic patterns. Artists like Alphonse Mucha and Gustav Klimt created works that celebrated the beauty of the natural world.
+
+## Digital Renaissance
+
+Today's digital tools allow us to explore these same principles in new ways:
+
+### Visual Design
+- Flowing gradients that mimic natural color transitions
+- Organic typography that breathes and moves
+- Interface elements inspired by plant forms and natural patterns
+
+### Musical Applications
+In my own work, I apply Art Nouveau principles to sound design:
+- Flowing melodic lines that twist and evolve like vines
+- Harmonic progressions that mirror natural growth patterns
+- Textural elements that embrace imperfection and organic variation
+
+## Technology as Nature
+
+The irony isn't lost on me—using digital technology to recreate the organic resistance to industrialization. But perhaps that's the point: technology becomes most powerful when it serves our human need for beauty and natural connection.
+
+## Practical Applications
+
+When designing this website, I drew heavily from Art Nouveau palettes and flowing forms. The warm oranges and earth tones, the organic gradients, and the handcrafted typography all pay homage to this influential movement.
+
+The goal is creating digital experiences that feel human, warm, and alive—just as Art Nouveau artists sought to do over a century ago.`,
       author: "zoofia",
       date: "2024-01-05",
       readTime: "6 min read",
