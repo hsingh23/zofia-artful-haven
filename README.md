@@ -1,73 +1,107 @@
-# Welcome to your Lovable project
+# Zoofia — Artful Haven
 
-## Project info
+Personal artist website for **Zoofia**, an experimental musician. A
+single-page React application that presents music (with deep Bandcamp
+integration), merchandise, a blog with a mock MDX editor, and contact
+info — wrapped in a warm, Art Nouveau-inspired visual identity.
 
-**URL**: https://lovable.dev/projects/de698b56-d350-4535-b534-591fb85cf321
+The site is intentionally frontend-only: no backend, no database, no
+environment variables. All content (albums, posts, merch items) lives as
+literals inside the page components.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Fixed left navigation rail** — "ZOOFIA" wordmark, uppercase links
+  (MUSIC / MERCH / BLOG / CONTACT) with active-route highlighting, and
+  the taglines "CREATIVITY / POWERED BY CODE".
+- **Home** — 12-column split hero: floating gradient orb + "Meet
+  Zoofia" headline on one side; tagline, "Listen Now" and Bandcamp
+  buttons, and an embedded Bandcamp player on the other; followed by a
+  three-column MUSIC/MERCH/BLOG section.
+- **Music** — featured album *Novus* (2024) with track list, Bandcamp
+  embeds, purchase links, "more releases" placeholders, and a
+  support-independent-music CTA.
+- **Merch** — product grid with limited-edition badges, sold-out
+  overlays, category filter buttons, and a featured Supporter's Bundle.
+- **Blog** — searchable/filterable post list (categories: Process,
+  Music, Art, Personal) with three fully written articles, plus an
+  `/blog/edit` mock MDX editor gated by a simulated GitHub
+  token/repo form (nothing is persisted).
+- **Contact** — message form (toast confirmation), contact/social
+  links, FAQ, and an email-list signup with simulated loading.
+- **Art Nouveau design system** — coral/amber/terracotta palette,
+  gradient text and buttons, organic float/pulse animations, flowing
+  link underlines, Crimson Text + DM Serif Display typography.
+- **SEO** — descriptive title/meta, canonical URL, Open Graph, Twitter
+  cards, and Schema.org JSON-LD in `index.html`.
+- **SPA hosting support** — `public/_redirects` provides the Netlify
+  catch-all rewrite so deep links don't 404.
 
-**Use Lovable**
+## Tech stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/de698b56-d350-4535-b534-591fb85cf321) and start prompting.
+- [Vite 5](https://vitejs.dev/) + SWC, [React 18](https://react.dev/), TypeScript
+- [Tailwind CSS 3](https://tailwindcss.com/) + `tailwindcss-animate`, PostCSS
+- [shadcn/ui](https://ui.shadcn.com/) (full Radix UI primitive set) + `class-variance-authority`, `clsx`, `tailwind-merge`
+- [React Router v6](https://reactrouter.com/), [TanStack Query v5](https://tanstack.com/query)
+- [lucide-react](https://lucide.dev/) icons, Radix-based toasts (`use-toast`), `sonner`
+- `lovable-tagger` (development only), ESLint 9 flat config
 
-Changes made via Lovable will be committed automatically to this repo.
+## Quickstart
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Requires Node.js and npm (or bun — a `bun.lockb` is also committed).
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm install       # or: bun install
+npm run dev       # dev server on http://localhost:8080
 ```
 
-**Edit a file directly in GitHub**
+Other scripts:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```sh
+npm run build       # production build (dist/)
+npm run build:dev   # development-mode build
+npm run preview     # preview the production build
+npm run lint        # ESLint
+```
 
-**Use GitHub Codespaces**
+No environment variables are needed.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project structure
 
-## What technologies are used for this project?
+```
+src/
+  main.tsx              # entry — mounts App, imports index.css
+  App.tsx               # providers + route table
+  index.css             # Art Nouveau design system (CSS vars, component classes, keyframes)
+  pages/                # Home, Music, Merch, Blog, BlogEdit, Contact, NotFound (Index is an unused fallback)
+  components/
+    Navigation.tsx      # fixed left rail nav
+    BandcampEmbed.tsx   # Bandcamp iframe wrapper
+    EmailSignup.tsx     # email-list CTA with simulated submit
+    ui/                 # shadcn/ui primitives (button, card, dialog, ...)
+  hooks/                # use-toast, use-mobile
+  lib/utils.ts          # cn() class merge helper
+public/
+  _redirects            # Netlify SPA fallback: /* -> /index.html 200
+  robots.txt, favicon.ico, placeholder.svg
+```
 
-This project is built with:
+Routes: `/`, `/music`, `/merch`, `/blog`, `/blog/edit`, `/contact`,
+plus a `*` catch-all (404). New routes must be registered **above** the
+catch-all in `src/App.tsx`.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deploying
 
-## How can I deploy this project?
+The project was generated with Lovable
+([project link](https://lovable.dev/projects/de698b56-d350-4535-b534-591fb85cf321)),
+which publishes to static hosting; `public/_redirects` handles the SPA
+fallback there (and on Netlify). For any static host: run
+`npm run build` and serve `dist/` with `/* -> /index.html 200` rewrite
+behavior enabled.
 
-Simply open [Lovable](https://lovable.dev/projects/de698b56-d350-4535-b534-591fb85cf321) and click on Share -> Publish.
+## Docs
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- [`CHANGELOG.md`](CHANGELOG.md) — every commit, newest first
+- [`AGENTS.md`](AGENTS.md) — agent/developer working guide (commands, architecture, gotchas)
+- [`prompt.md`](prompt.md) — one-shot prompt that recreates this site from scratch
+- [`architectural-diary/`](architectural-diary/) — decision log and narrative history
